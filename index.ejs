@@ -1,0 +1,18 @@
+<%- include('layout')%>
+    <h1 style="text-align: center; text-decoration:underline;">All Posts</h1>
+    <% if (posts.length === 0) { %>
+        <h2>No posts yet!</h2>
+    <% } else { %>
+        <% posts.forEach((post, index) => { %>
+            <div class="post">
+                <h3><%= post.title %></h3>
+                <p><%= post.content %></p>
+                <a href="/edit/<%= index %>">Edit</a>
+                <form action="/delete/<%= index %>" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
+        <% }) %>
+    <% } %>
+   
+    
